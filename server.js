@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const app = express();
 
-const List = require('./controllers/ListController');
+const BlogPosts = require('./controllers/BlogPostsController');
 
 app.use(bodyParser.json());
 
@@ -16,7 +16,7 @@ mongoose
   .catch(err => console.log(err, 'error with mongodb'));
 
 
-app.use('/api/list', List);
+app.use('/api/blog', BlogPosts);
 
 app.listen(process.env.PORT || 9000, ()=> {
   console.log(`Server started on port 9000`)
